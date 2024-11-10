@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Giỏ hàng";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
+
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="active">
+                        <a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>Giỏ hàng</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12"id="load_data">
+                    @Html.Action("Partial_Item_Cart","ShoppingCart")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('body').on('click', '.btnDelete', function () {
+            var id = $(this).data("id");
+            var conf = confirm("Bạn có muốn xóa bản ghi hay không?");
+            if (conf === true) {
+                $.ajax({
+                    url: '/ShoppingCart/Delete',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+                        if (rs.Success) {
+                            $('#trow_' + id).remove();
+                            LoadCart();
+                        }
+                        else {
+                            confirm("Bạn xóa bản ghi không thành công!!!");
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+</script>
+}

@@ -1,0 +1,47 @@
+﻿.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .cart-table th, .cart-table td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .cart-table th {
+        font-weight: bold;
+    }
+
+.total-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Container cho tiêu đề giỏ hàng */
+.cart-title {
+    display: flex; /* Sử dụng Flexbox để căn giữa và định vị */
+    justify-content: start; /*Tạo khoảng cách đều giữa tiêu đề và số lượng */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin: 20px 0; /* Khoảng cách trên và dưới */
+}
+    .cart-title span {
+        margin-right: 200px;
+    }
+
+/* Phần hiển thị số lượng */
+.cart-count {
+    position: absolute;
+    top: 25px; /* Đưa số lượng lên phía trên một chút */
+    right: 0px;/* Đưa số lượng sang bên phải một chút */
+    background-color: #ff0000; /* Màu nền nổi bật */
+    color: #fff; /* Màu chữ trắng */
+    border-radius: 50%; /* Tạo hình tròn cho số lượng */
+    padding: 5px; /* Khoảng cách bên trong, chỉ dùng padding cho chiều dọc */
+    min-width: 25px; /* Đảm bảo chiều rộng tối thiểu để hiển thị số */
+    min-height: 25px; /* Đảm bảo chiều cao tối thiểu để hiển thị số */
+    display: flex; /* Sử dụng Flexbox để căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    font-size: 14px; /* Kích thước chữ */
+    font-weight: bold; /* Chữ đậm */
+}
